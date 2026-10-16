@@ -80,6 +80,15 @@ export default function Dashboard() {
   }, new Map<string, number>());
   const maxUnidades = Math.max(...unidadesPorProducto.values(), 0);
   const productosMasVendidos = [...unidadesPorProducto.entries()].filter(([, unidades]) => unidades === maxUnidades);
+  const resumenProductos = [...ventas.reduce((productos, venta) => {
+    const actual = productos.get(venta.producto_nombre) ?? { unidades: 0, ingresos: 0 };
+    productos.set(venta.producto_nombre, {
+      unidades: actual.unidades + venta.unidades,
+      ingresos: actual.ingresos + venta.ingreso,
+    });
+    return productos;
+  }, new Map<string, { unidades: number; ingresos: number }>()).entries()]
+    .sort((a, b) => b[1].unidades - a[1].unidades);
 
   return (
     <main className="min-h-screen bg-slate-50 p-6 md:p-10 text-slate-800">
@@ -97,59 +106,58 @@ export default function Dashboard() {
           </p>
         </header>
 
-        {/* Tarjetas de Métricas (KPIs) - Ahora con 5 Cards */}
-        <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ingresos Totales</span>
-            <p className="text-2xl font-black text-slate-900 mt-2">
-              {resumen.ingresos_totales.toLocaleString()} {resumen.moneda}
-            </p>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ventas Válidas</span>
-            <p className="text-2xl font-black text-indigo-600 mt-2">
-              {resumen.operaciones_validas}
-            </p>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ticket Medio</span>
-            <p className="text-2xl font-black text-slate-900 mt-2">
-              {ticketMedio} {resumen.moneda}
-            </p>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Unidades Totales</span>
-            <p className="text-2xl font-black text-slate-900 mt-2">
-              {resumen.unidades_totales}
-            </p>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm col-span-2 md:col-span-1">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Excluidas (Dup / Inc)</span>
-            <p className="text-2xl font-black text-amber-600 mt-2">
-              {calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}
-            </p>
-          </div>
-        </section>
-
-        {/* Producto más vendido */}
-        <section className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-            Producto{productosMasVendidos.length > 1 ? 's' : ''} más vendido{productosMasVendidos.length > 1 ? 's' : ''}
-          </span>
-          {productosMasVendidos.length > 0 ? (
-            <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-              <p className="text-xl font-black text-indigo-600">
-                {productosMasVendidos.map(([nombre]) => nombre).join(', ')}
-              </p>
-              <span className="text-sm text-slate-500">{maxUnidades} unidades vendidas</span>
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden lg:col-span-1">
+            <div className="p-5 border-b border-slate-100">
+              <h2 className="text-lg font-bold text-slate-900">Productos vendidos</h2>
+              <p className="text-xs text-slate-500 mt-1">Unidades e ingresos por producto.</p>
             </div>
-          ) : (
-            <p className="mt-2 text-sm text-slate-500">No hay ventas para mostrar.</p>
-          )}
+            <div className="max-h-[34rem] overflow-y-auto divide-y divide-slate-100">
+              {resumenProductos.map(([nombre, datos]) => (
+                <div key={nombre} className="px-5 py-3 flex items-center justify-between gap-3 hover:bg-slate-50">
+                  <div className="min-w-0">
+                    <p className="font-semibold text-sm text-slate-800 truncate">{nombre}</p>
+                    <p className="text-xs text-slate-500">{datos.unidades} unidades</p>
+                  </div>
+                  <span className="shrink-0 text-sm font-semibold text-slate-700">
+                    {datos.ingresos.toLocaleString('es-ES', { minimumFractionDigits: 2 })} {resumen.moneda}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:col-span-2">
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ingresos totales</span>
+              <p className="text-xl font-black text-slate-900 mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ventas válidas</span>
+              <p className="text-xl font-black text-indigo-600 mt-2">{resumen.operaciones_validas}</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ticket medio</span>
+              <p className="text-xl font-black text-slate-900 mt-2">{ticketMedio} {resumen.moneda}</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Unidades totales</span>
+              <p className="text-xl font-black text-slate-900 mt-2">{resumen.unidades_totales}</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
+              <p className="text-xl font-black text-amber-600 mt-2">{calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Producto más vendido</span>
+              {productosMasVendidos.length > 0 ? (
+                <>
+                  <p className="text-base font-black text-indigo-600 mt-2 leading-snug">{productosMasVendidos.map(([nombre]) => nombre).join(', ')}</p>
+                  <p className="text-xs text-slate-500 mt-1">{maxUnidades} unidades</p>
+                </>
+              ) : <p className="text-sm text-slate-500 mt-2">Sin ventas</p>}
+            </div>
+          </div>
         </section>
 
         {/* Gráfico de Barras por Categoría */}
@@ -181,49 +189,6 @@ export default function Dashboard() {
                 </div>
               );
             })}
-          </div>
-        </section>
-
-        {/* Listado de ventas válidas */}
-        <section className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-slate-100">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <h2 className="text-lg font-bold text-slate-900">Listado de ventas</h2>
-                <p className="text-xs text-slate-500 mt-1">Operaciones válidas incluidas en la auditoría.</p>
-              </div>
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                {ventas.length} ventas
-              </span>
-            </div>
-          </div>
-          <div className="max-h-96 overflow-auto">
-            <table className="min-w-full text-sm text-left">
-              <thead className="sticky top-0 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-                <tr>
-                  <th className="px-4 py-3 font-semibold">ID venta</th>
-                  <th className="px-4 py-3 font-semibold">Fecha</th>
-                  <th className="px-4 py-3 font-semibold">Producto</th>
-                  <th className="px-4 py-3 font-semibold">Categoría</th>
-                  <th className="px-4 py-3 text-right font-semibold">Unidades</th>
-                  <th className="px-4 py-3 text-right font-semibold">Importe</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {ventas.map((venta) => (
-                  <tr key={venta.venta_id} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-mono text-xs text-slate-600">{venta.venta_id}</td>
-                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">{venta.fecha}</td>
-                    <td className="px-4 py-3 font-medium text-slate-800">{venta.producto_nombre}</td>
-                    <td className="px-4 py-3 text-slate-600">{venta.categoria}</td>
-                    <td className="px-4 py-3 text-right tabular-nums text-slate-600">{venta.unidades}</td>
-                    <td className="px-4 py-3 text-right whitespace-nowrap font-semibold text-slate-800">
-                      {venta.ingreso.toLocaleString('es-ES', { minimumFractionDigits: 2 })} {resumen.moneda}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </section>
 
