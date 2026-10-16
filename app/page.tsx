@@ -21,9 +21,20 @@ interface CalidadData {
   detalle_incidencias?: { venta_id: string; fila_csv: number; motivo: string }[];
 }
 
+interface Venta {
+  venta_id: string;
+  fecha: string;
+  producto_nombre: string;
+  categoria: string;
+  unidades: number;
+  precio: number;
+  ingreso: number;
+}
+
 export default function Dashboard() {
   const [resumen, setResumen] = useState<ResumenData | null>(null);
   const [calidad, setCalidad] = useState<CalidadData | null>(null);
+  const [ventas, setVentas] = useState<Venta[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -36,10 +47,15 @@ export default function Dashboard() {
         if (!res.ok) throw new Error('No se encontró /datos/calidad.json');
         return res.json();
       }),
+      fetch('/datos/ventas.json').then((res) => {
+        if (!res.ok) throw new Error('No se encontró /datos/ventas.json');
+        return res.json();
+      }),
     ])
-      .then(([dataResumen, dataCalidad]) => {
+      .then(([dataResumen, dataCalidad, dataVentas]) => {
         setResumen(dataResumen);
         setCalidad(dataCalidad);
+        setVentas(dataVentas);
       })
       .catch((err) => setError(err.message));
   }, []);
@@ -52,7 +68,7 @@ export default function Dashboard() {
     );
   }
 
-  if (!resumen || !calidad) {
+  if (!resumen || !calidad || !ventas) {
     return <div className="p-8 text-slate-600">Cargando dashboard auditado...</div>;
   }
 
@@ -142,6 +158,49 @@ export default function Dashboard() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Listado de ventas válidas */}
+        <section className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="p-6 border-b border-slate-100">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">Listado de ventas</h2>
+                <p className="text-xs text-slate-500 mt-1">Operaciones válidas incluidas en la auditoría.</p>
+              </div>
+              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+                {ventas.length} ventas
+              </span>
+            </div>
+          </div>
+          <div className="max-h-96 overflow-auto">
+            <table className="min-w-full text-sm text-left">
+              <thead className="sticky top-0 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">ID venta</th>
+                  <th className="px-4 py-3 font-semibold">Fecha</th>
+                  <th className="px-4 py-3 font-semibold">Producto</th>
+                  <th className="px-4 py-3 font-semibold">Categoría</th>
+                  <th className="px-4 py-3 text-right font-semibold">Unidades</th>
+                  <th className="px-4 py-3 text-right font-semibold">Importe</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {ventas.map((venta) => (
+                  <tr key={venta.venta_id} className="hover:bg-slate-50">
+                    <td className="px-4 py-3 font-mono text-xs text-slate-600">{venta.venta_id}</td>
+                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">{venta.fecha}</td>
+                    <td className="px-4 py-3 font-medium text-slate-800">{venta.producto_nombre}</td>
+                    <td className="px-4 py-3 text-slate-600">{venta.categoria}</td>
+                    <td className="px-4 py-3 text-right tabular-nums text-slate-600">{venta.unidades}</td>
+                    <td className="px-4 py-3 text-right whitespace-nowrap font-semibold text-slate-800">
+                      {venta.ingreso.toLocaleString('es-ES', { minimumFractionDigits: 2 })} {resumen.moneda}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 

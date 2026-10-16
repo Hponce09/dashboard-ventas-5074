@@ -1,0 +1,602 @@
+[
+  {
+    "venta_id": "V001",
+    "fecha": "2026-10-01",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V002",
+    "fecha": "2026-10-02",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V003",
+    "fecha": "2026-10-03",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V004",
+    "fecha": "2026-10-04",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V005",
+    "fecha": "2026-10-05",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V006",
+    "fecha": "2026-10-06",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V007",
+    "fecha": "2026-10-07",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V008",
+    "fecha": "2026-10-01",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V009",
+    "fecha": "2026-10-02",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V010",
+    "fecha": "2026-10-03",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V011",
+    "fecha": "2026-10-04",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V012",
+    "fecha": "2026-10-05",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V013",
+    "fecha": "2026-10-06",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V014",
+    "fecha": "2026-10-07",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V015",
+    "fecha": "2026-10-01",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V016",
+    "fecha": "2026-10-02",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V017",
+    "fecha": "2026-10-03",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V018",
+    "fecha": "2026-10-04",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V019",
+    "fecha": "2026-10-05",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V020",
+    "fecha": "2026-10-06",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V021",
+    "fecha": "2026-10-07",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V022",
+    "fecha": "2026-10-01",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V023",
+    "fecha": "2026-10-02",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V024",
+    "fecha": "2026-10-03",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V025",
+    "fecha": "2026-10-04",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V026",
+    "fecha": "2026-10-05",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V027",
+    "fecha": "2026-10-06",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V028",
+    "fecha": "2026-10-07",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V029",
+    "fecha": "2026-10-01",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V030",
+    "fecha": "2026-10-02",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V031",
+    "fecha": "2026-10-03",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V032",
+    "fecha": "2026-10-04",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V033",
+    "fecha": "2026-10-05",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V034",
+    "fecha": "2026-10-06",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V035",
+    "fecha": "2026-10-07",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V036",
+    "fecha": "2026-10-01",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V037",
+    "fecha": "2026-10-02",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V038",
+    "fecha": "2026-10-03",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V039",
+    "fecha": "2026-10-04",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V040",
+    "fecha": "2026-10-05",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V041",
+    "fecha": "2026-10-06",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V042",
+    "fecha": "2026-10-07",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V043",
+    "fecha": "2026-10-01",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V044",
+    "fecha": "2026-10-02",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V045",
+    "fecha": "2026-10-03",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V046",
+    "fecha": "2026-10-04",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V047",
+    "fecha": "2026-10-05",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V048",
+    "fecha": "2026-10-06",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V049",
+    "fecha": "2026-10-07",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V050",
+    "fecha": "2026-10-01",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V051",
+    "fecha": "2026-10-02",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V052",
+    "fecha": "2026-10-03",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  },
+  {
+    "venta_id": "V053",
+    "fecha": "2026-10-04",
+    "producto_id": "P05",
+    "producto_nombre": "Cable USB",
+    "categoria": "Tecnología",
+    "unidades": 1,
+    "precio": 8,
+    "ingreso": 8
+  },
+  {
+    "venta_id": "V054",
+    "fecha": "2026-10-05",
+    "producto_id": "P06",
+    "producto_nombre": "Ratón",
+    "categoria": "Tecnología",
+    "unidades": 2,
+    "precio": 18,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V055",
+    "fecha": "2026-10-06",
+    "producto_id": "P07",
+    "producto_nombre": "Botella",
+    "categoria": "Deporte",
+    "unidades": 3,
+    "precio": 15,
+    "ingreso": 45
+  },
+  {
+    "venta_id": "V056",
+    "fecha": "2026-10-07",
+    "producto_id": "P08",
+    "producto_nombre": "Esterilla",
+    "categoria": "Deporte",
+    "unidades": 4,
+    "precio": 20,
+    "ingreso": 80
+  },
+  {
+    "venta_id": "V057",
+    "fecha": "2026-10-01",
+    "producto_id": "P01",
+    "producto_nombre": "Cuaderno",
+    "categoria": "Papelería",
+    "unidades": 1,
+    "precio": 5,
+    "ingreso": 5
+  },
+  {
+    "venta_id": "V058",
+    "fecha": "2026-10-02",
+    "producto_id": "P02",
+    "producto_nombre": "Bolígrafo",
+    "categoria": "Papelería",
+    "unidades": 2,
+    "precio": 2,
+    "ingreso": 4
+  },
+  {
+    "venta_id": "V059",
+    "fecha": "2026-10-03",
+    "producto_id": "P03",
+    "producto_nombre": "Taza",
+    "categoria": "Hogar",
+    "unidades": 3,
+    "precio": 12,
+    "ingreso": 36
+  },
+  {
+    "venta_id": "V060",
+    "fecha": "2026-10-04",
+    "producto_id": "P04",
+    "producto_nombre": "Lámpara",
+    "categoria": "Hogar",
+    "unidades": 4,
+    "precio": 25,
+    "ingreso": 100
+  }
+]

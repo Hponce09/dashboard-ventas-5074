@@ -185,6 +185,7 @@ fs.writeFileSync(path.join(DIR_SALIDA, 'resumen.json'), JSON.stringify(resumen, 
 fs.writeFileSync(path.join(DIR_SALIDA, 'calidad.json'), JSON.stringify(calidad, null, 2));
 fs.writeFileSync(path.join(DIR_PUBLIC, 'resumen.json'), JSON.stringify(resumen, null, 2));
 fs.writeFileSync(path.join(DIR_PUBLIC, 'calidad.json'), JSON.stringify(calidad, null, 2));
+fs.writeFileSync(path.join(DIR_PUBLIC, 'ventas.json'), JSON.stringify(operacionesValidas, null, 2));
 
 console.log('✅ AUDITORÍA COMPLETADA CON ÉXITO:');
 console.log(`- Total filas leídas: ${totalFilasEntrada}`);
