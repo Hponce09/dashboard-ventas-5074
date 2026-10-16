@@ -74,6 +74,12 @@ export default function Dashboard() {
 
   const maxIngreso = Math.max(...resumen.ingresos_por_categoria.map((c) => c.ingresos), 1);
   const ticketMedio = (resumen.ingresos_totales / (resumen.operaciones_validas || 1)).toFixed(2);
+  const unidadesPorProducto = ventas.reduce((totales, venta) => {
+    totales.set(venta.producto_nombre, (totales.get(venta.producto_nombre) ?? 0) + venta.unidades);
+    return totales;
+  }, new Map<string, number>());
+  const maxUnidades = Math.max(...unidadesPorProducto.values(), 0);
+  const productosMasVendidos = [...unidadesPorProducto.entries()].filter(([, unidades]) => unidades === maxUnidades);
 
   return (
     <main className="min-h-screen bg-slate-50 p-6 md:p-10 text-slate-800">
@@ -127,6 +133,23 @@ export default function Dashboard() {
               {calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}
             </p>
           </div>
+        </section>
+
+        {/* Producto más vendido */}
+        <section className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+            Producto{productosMasVendidos.length > 1 ? 's' : ''} más vendido{productosMasVendidos.length > 1 ? 's' : ''}
+          </span>
+          {productosMasVendidos.length > 0 ? (
+            <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+              <p className="text-xl font-black text-indigo-600">
+                {productosMasVendidos.map(([nombre]) => nombre).join(', ')}
+              </p>
+              <span className="text-sm text-slate-500">{maxUnidades} unidades vendidas</span>
+            </div>
+          ) : (
+            <p className="mt-2 text-sm text-slate-500">No hay ventas para mostrar.</p>
+          )}
         </section>
 
         {/* Gráfico de Barras por Categoría */}
