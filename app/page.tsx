@@ -107,7 +107,7 @@ export default function Dashboard() {
         </header>
 
         <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-5 items-start">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="bg-slate-100 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="p-5 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900">Productos vendidos</h2>
               <p className="text-xs text-slate-500 mt-1">Unidades e ingresos por producto.</p>
@@ -128,28 +128,28 @@ export default function Dashboard() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-indigo-700 uppercase tracking-wider">Ingresos totales</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ingresos totales</span>
               <p className="text-xl font-black text-slate-900 mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
             </div>
-            <div className="bg-sky-50 p-4 rounded-xl border border-sky-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-sky-700 uppercase tracking-wider">Ventas válidas</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ventas válidas</span>
               <p className="text-xl font-black text-indigo-600 mt-2">{resumen.operaciones_validas}</p>
             </div>
-            <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-violet-700 uppercase tracking-wider">Ticket medio</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ticket medio</span>
               <p className="text-xl font-black text-slate-900 mt-2">{ticketMedio} {resumen.moneda}</p>
             </div>
-            <div className="bg-teal-50 p-4 rounded-xl border border-teal-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Unidades totales</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Unidades totales</span>
               <p className="text-xl font-black text-slate-900 mt-2">{resumen.unidades_totales}</p>
             </div>
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
               <p className="text-xl font-black text-amber-600 mt-2">{calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}</p>
             </div>
-            <div className="bg-rose-50 p-4 rounded-xl border border-rose-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-rose-700 uppercase tracking-wider">Producto más vendido</span>
+            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Producto más vendido</span>
               {productosMasVendidos.length > 0 ? (
                 <>
                   <p className="text-base font-black text-indigo-600 mt-2 leading-snug">{productosMasVendidos.map(([nombre]) => nombre).join(', ')}</p>
@@ -161,7 +161,7 @@ export default function Dashboard() {
         </section>
 
         {/* Gráfico de Barras por Categoría */}
-        <section className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+        <section className="bg-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
           <div>
             <h2 className="text-lg font-bold text-slate-900">Ingresos por Categoría</h2>
             <p className="text-xs text-slate-500">
@@ -193,7 +193,7 @@ export default function Dashboard() {
         </section>
 
         {/* Auditoría de Calidad e Incidencias Detectadas */}
-        <section className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+        <section className="bg-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
           <h2 className="text-lg font-bold text-slate-900">Auditoría de Incidencias</h2>
           <p className="text-xs text-slate-500">
             Total filas: {calidad.total_filas_entrada} = Válidas ({calidad.operaciones_validas}) + Duplicadas ({calidad.copias_duplicadas_excluidas}) + Incidencias ({calidad.incidencias_excluidas}). Estado: {calidad.balance_correcto ? 'Verificado ✓' : 'Fallo en recuento ✗'}.
