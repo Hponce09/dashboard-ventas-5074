@@ -18,6 +18,7 @@ interface CalidadData {
   copias_duplicadas_excluidas: number;
   incidencias_excluidas: number;
   balance_correcto: boolean;
+  detalle_incidencias?: { venta_id: string; fila_csv: number; motivo: string }[];
 }
 
 export default function Dashboard() {
@@ -56,6 +57,7 @@ export default function Dashboard() {
   }
 
   const maxIngreso = Math.max(...resumen.ingresos_por_categoria.map((c) => c.ingresos), 1);
+  const ticketMedio = (resumen.ingresos_totales / (resumen.operaciones_validas || 1)).toFixed(2);
 
   return (
     <main className="min-h-screen bg-slate-50 p-6 md:p-10 text-slate-800">
@@ -73,8 +75,8 @@ export default function Dashboard() {
           </p>
         </header>
 
-        {/* Tarjetas de Métricas (KPIs) */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Tarjetas de Métricas (KPIs) - Ahora con 5 Cards */}
+        <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ingresos Totales</span>
             <p className="text-2xl font-black text-slate-900 mt-2">
@@ -83,9 +85,16 @@ export default function Dashboard() {
           </div>
 
           <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Operaciones Válidas</span>
-            <p className="text-2xl font-black text-slate-900 mt-2">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ventas Válidas</span>
+            <p className="text-2xl font-black text-indigo-600 mt-2">
               {resumen.operaciones_validas}
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ticket Medio</span>
+            <p className="text-2xl font-black text-slate-900 mt-2">
+              {ticketMedio} {resumen.moneda}
             </p>
           </div>
 
@@ -96,7 +105,7 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm col-span-2 md:col-span-1">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Excluidas (Dup / Inc)</span>
             <p className="text-2xl font-black text-amber-600 mt-2">
               {calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}
@@ -136,10 +145,36 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Auditoría de Calidad */}
-        <footer className="text-xs text-slate-500 bg-slate-100 p-4 rounded-lg">
-          Auditoría de integridad: Total filas leídas ({calidad.total_filas_entrada}) = Válidas ({calidad.operaciones_validas}) + Duplicadas ({calidad.copias_duplicadas_excluidas}) + Incidencias ({calidad.incidencias_excluidas}). Estado: {calidad.balance_correcto ? 'Verificado ✓' : 'Fallo en recuento ✗'}.
-        </footer>
+        {/* Auditoría de Calidad e Incidencias Detectadas */}
+        <section className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <h2 className="text-lg font-bold text-slate-900">Auditoría de Incidencias</h2>
+          <p className="text-xs text-slate-500">
+            Total filas: {calidad.total_filas_entrada} = Válidas ({calidad.operaciones_validas}) + Duplicadas ({calidad.copias_duplicadas_excluidas}) + Incidencias ({calidad.incidencias_excluidas}). Estado: {calidad.balance_correcto ? 'Verificado ✓' : 'Fallo en recuento ✗'}.
+          </p>
+
+          {calidad.detalle_incidencias && calidad.detalle_incidencias.length > 0 && (
+            <div className="overflow-x-auto pt-2">
+              <table className="min-w-full text-xs text-left border border-slate-200">
+                <thead className="bg-slate-50 border-b text-slate-600 uppercase font-semibold">
+                  <tr>
+                    <th className="px-3 py-2">ID Venta</th>
+                    <th className="px-3 py-2">Fila CSV</th>
+                    <th className="px-3 py-2">Motivo Exclusión</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {calidad.detalle_incidencias.map((inc, i) => (
+                    <tr key={i} className="hover:bg-slate-50">
+                      <td className="px-3 py-2 font-mono font-medium text-slate-800">{inc.venta_id}</td>
+                      <td className="px-3 py-2 text-slate-600">{inc.fila_csv}</td>
+                      <td className="px-3 py-2 text-red-600">{inc.motivo}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
 
       </div>
     </main>
