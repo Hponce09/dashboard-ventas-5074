@@ -106,8 +106,8 @@ export default function Dashboard() {
           </p>
         </header>
 
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden lg:col-span-1">
+        <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-5 items-start">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="p-5 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900">Productos vendidos</h2>
               <p className="text-xs text-slate-500 mt-1">Unidades e ingresos por producto.</p>
@@ -127,7 +127,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
               <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ingresos totales</span>
               <p className="text-xl font-black text-slate-900 mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
