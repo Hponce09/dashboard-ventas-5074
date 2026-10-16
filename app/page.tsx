@@ -107,19 +107,19 @@ export default function Dashboard() {
         </header>
 
         <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] gap-5 items-start">
-          <div className="bg-slate-100 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="p-5 border-b border-slate-100">
-              <h2 className="text-lg font-bold text-slate-900">Productos vendidos</h2>
-              <p className="text-xs text-slate-500 mt-1">Unidades e ingresos por producto.</p>
+          <div className="bg-[#164e63] rounded-xl border border-[#164e63] shadow-sm overflow-hidden text-white">
+            <div className="p-5 border-b border-white/15">
+              <h2 className="text-lg font-bold text-white">Productos vendidos</h2>
+              <p className="text-xs text-slate-200 mt-1">Unidades e ingresos por producto.</p>
             </div>
             <div className="max-h-[34rem] overflow-y-auto divide-y divide-slate-100">
               {resumenProductos.map(([nombre, datos]) => (
-                <div key={nombre} className="px-5 py-3 flex items-center justify-between gap-3 hover:bg-slate-50">
+                <div key={nombre} className="px-5 py-3 flex items-center justify-between gap-3 border-b border-white/10 last:border-0 hover:bg-white/10">
                   <div className="min-w-0">
-                    <p className="font-semibold text-sm text-slate-800 truncate">{nombre}</p>
-                    <p className="text-xs text-slate-500">{datos.unidades} unidades</p>
+                    <p className="font-semibold text-sm text-white truncate">{nombre}</p>
+                    <p className="text-xs text-slate-200">{datos.unidades} unidades</p>
                   </div>
-                  <span className="shrink-0 text-sm font-semibold text-slate-700">
+                  <span className="shrink-0 text-sm font-semibold text-white">
                     {datos.ingresos.toLocaleString('es-ES', { minimumFractionDigits: 2 })} {resumen.moneda}
                   </span>
                 </div>
@@ -128,32 +128,32 @@ export default function Dashboard() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ingresos totales</span>
-              <p className="text-xl font-black text-slate-900 mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Ingresos totales</span>
+              <p className="text-xl font-black text-white mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
             </div>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ventas válidas</span>
-              <p className="text-xl font-black text-indigo-600 mt-2">{resumen.operaciones_validas}</p>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Ventas válidas</span>
+              <p className="text-xl font-black text-white mt-2">{resumen.operaciones_validas}</p>
             </div>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Ticket medio</span>
-              <p className="text-xl font-black text-slate-900 mt-2">{ticketMedio} {resumen.moneda}</p>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Ticket medio</span>
+              <p className="text-xl font-black text-white mt-2">{ticketMedio} {resumen.moneda}</p>
             </div>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Unidades totales</span>
-              <p className="text-xl font-black text-slate-900 mt-2">{resumen.unidades_totales}</p>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Unidades totales</span>
+              <p className="text-xl font-black text-white mt-2">{resumen.unidades_totales}</p>
             </div>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
-              <p className="text-xl font-black text-amber-600 mt-2">{calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}</p>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
+              <p className="text-xl font-black text-white mt-2">{calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}</p>
             </div>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">Producto más vendido</span>
+            <div className="bg-[#164e63] p-4 rounded-xl border border-[#164e63] shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Producto más vendido</span>
               {productosMasVendidos.length > 0 ? (
                 <>
-                  <p className="text-base font-black text-indigo-600 mt-2 leading-snug">{productosMasVendidos.map(([nombre]) => nombre).join(', ')}</p>
-                  <p className="text-xs text-slate-500 mt-1">{maxUnidades} unidades</p>
+                  <p className="text-base font-black text-white mt-2 leading-snug">{productosMasVendidos.map(([nombre]) => nombre).join(', ')}</p>
+                  <p className="text-xs text-slate-200 mt-1">{maxUnidades} unidades</p>
                 </>
               ) : <p className="text-sm text-slate-500 mt-2">Sin ventas</p>}
             </div>
@@ -161,10 +161,10 @@ export default function Dashboard() {
         </section>
 
         {/* Gráfico de Barras por Categoría */}
-        <section className="bg-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+        <section className="bg-[#164e63] p-6 rounded-xl border border-[#164e63] shadow-sm space-y-4 text-white">
           <div>
-            <h2 className="text-lg font-bold text-slate-900">Ingresos por Categoría</h2>
-            <p className="text-xs text-slate-500">
+            <h2 className="text-lg font-bold text-white">Ingresos por Categoría</h2>
+            <p className="text-xs text-slate-200">
               Visualización mediante barras horizontales para comparar los ingresos en EUR por categoría.
             </p>
           </div>
@@ -175,14 +175,14 @@ export default function Dashboard() {
               return (
                 <div key={item.categoria} className="space-y-1">
                   <div className="flex justify-between text-sm">
-                    <span className="font-medium text-slate-700">{item.categoria}</span>
-                    <span className="font-semibold text-slate-900">
+                    <span className="font-medium text-slate-100">{item.categoria}</span>
+                    <span className="font-semibold text-white">
                       {item.ingresos.toLocaleString()} {resumen.moneda}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+                  <div className="w-full bg-white/20 rounded-full h-3.5 overflow-hidden">
                     <div
-                      className="bg-indigo-600 h-full rounded-full transition-all duration-500"
+                      className="bg-cyan-300 h-full rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -193,28 +193,28 @@ export default function Dashboard() {
         </section>
 
         {/* Auditoría de Calidad e Incidencias Detectadas */}
-        <section className="bg-slate-100 p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
-          <h2 className="text-lg font-bold text-slate-900">Auditoría de Incidencias</h2>
-          <p className="text-xs text-slate-500">
+        <section className="bg-[#164e63] p-6 rounded-xl border border-[#164e63] shadow-sm space-y-3 text-white">
+          <h2 className="text-lg font-bold text-white">Auditoría de Incidencias</h2>
+          <p className="text-xs text-slate-200">
             Total filas: {calidad.total_filas_entrada} = Válidas ({calidad.operaciones_validas}) + Duplicadas ({calidad.copias_duplicadas_excluidas}) + Incidencias ({calidad.incidencias_excluidas}). Estado: {calidad.balance_correcto ? 'Verificado ✓' : 'Fallo en recuento ✗'}.
           </p>
 
           {calidad.detalle_incidencias && calidad.detalle_incidencias.length > 0 && (
             <div className="overflow-x-auto pt-2">
-              <table className="min-w-full text-xs text-left border border-slate-200">
-                <thead className="bg-slate-50 border-b text-slate-600 uppercase font-semibold">
+              <table className="min-w-full text-xs text-left border border-white/20">
+                <thead className="bg-white/10 border-b border-white/20 text-slate-100 uppercase font-semibold">
                   <tr>
                     <th className="px-3 py-2">ID Venta</th>
                     <th className="px-3 py-2">Fila CSV</th>
                     <th className="px-3 py-2">Motivo Exclusión</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-white/10">
                   {calidad.detalle_incidencias.map((inc, i) => (
-                    <tr key={i} className="hover:bg-slate-50">
-                      <td className="px-3 py-2 font-mono font-medium text-slate-800">{inc.venta_id}</td>
-                      <td className="px-3 py-2 text-slate-600">{inc.fila_csv}</td>
-                      <td className="px-3 py-2 text-red-600">{inc.motivo}</td>
+                    <tr key={i} className="hover:bg-white/10">
+                      <td className="px-3 py-2 font-mono font-medium text-white">{inc.venta_id}</td>
+                      <td className="px-3 py-2 text-slate-200">{inc.fila_csv}</td>
+                      <td className="px-3 py-2 text-rose-200">{inc.motivo}</td>
                     </tr>
                   ))}
                 </tbody>
