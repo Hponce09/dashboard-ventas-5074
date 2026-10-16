@@ -128,28 +128,28 @@ export default function Dashboard() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ingresos totales</span>
+            <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-indigo-700 uppercase tracking-wider">Ingresos totales</span>
               <p className="text-xl font-black text-slate-900 mt-2">{resumen.ingresos_totales.toLocaleString('es-ES')} {resumen.moneda}</p>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ventas válidas</span>
+            <div className="bg-sky-50 p-4 rounded-xl border border-sky-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-sky-700 uppercase tracking-wider">Ventas válidas</span>
               <p className="text-xl font-black text-indigo-600 mt-2">{resumen.operaciones_validas}</p>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Ticket medio</span>
+            <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-violet-700 uppercase tracking-wider">Ticket medio</span>
               <p className="text-xl font-black text-slate-900 mt-2">{ticketMedio} {resumen.moneda}</p>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Unidades totales</span>
+            <div className="bg-teal-50 p-4 rounded-xl border border-teal-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Unidades totales</span>
               <p className="text-xl font-black text-slate-900 mt-2">{resumen.unidades_totales}</p>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
+            <div className="bg-amber-50 p-4 rounded-xl border border-amber-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Excluidas (dup. / inc.)</span>
               <p className="text-xl font-black text-amber-600 mt-2">{calidad.copias_duplicadas_excluidas} / {calidad.incidencias_excluidas}</p>
             </div>
-            <div className="bg-white p-4 rounded-xl border border-indigo-100 shadow-sm min-h-28">
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Producto más vendido</span>
+            <div className="bg-rose-50 p-4 rounded-xl border border-rose-100 shadow-sm min-h-28">
+              <span className="text-[11px] font-bold text-rose-700 uppercase tracking-wider">Producto más vendido</span>
               {productosMasVendidos.length > 0 ? (
                 <>
                   <p className="text-base font-black text-indigo-600 mt-2 leading-snug">{productosMasVendidos.map(([nombre]) => nombre).join(', ')}</p>
